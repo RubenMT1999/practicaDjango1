@@ -1,0 +1,30 @@
+
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Álbums</title>
+</head>
+<body>
+
+
+    <h1>Lista de álbums</h1>
+
+        <ol>
+            {% for Album in allAlbums %}
+                <li>Nombre: {{ Album.nombreAlbum }} <br>
+                    Año: {{ Album.anio }} <br>
+                    Género: {{ Album.genero }} <br>
+                    Grupo: {{ Album.grupoMusical_id.nombreGrupo }} <br>
+                    Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}<br>
+                    Puntuación: {{ Album.puntuacion }}</li>
+
+        <br><br>
+        {% endfor %}
+        </ol>
+
+
+</body>
+</html>

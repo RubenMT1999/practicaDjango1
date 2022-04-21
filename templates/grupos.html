@@ -1,0 +1,29 @@
+
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupos</title>
+</head>
+<body>
+
+     <h1>Lista de grupos</h1>
+        <ol>
+            {% for Grupo in allgrupos %}
+
+            <li>Nombre: {{ Grupo.nombreGrupo}} <br>
+                Estilo: {{ Grupo.estiloMusica }} <br>
+                Fecha creación: {{ Grupo.fecha_creacion }} <br>
+                Fecha disolución: {{ Grupo.fecha_disolucion }}</li>
+
+
+        <br><br>
+        {% endfor %}
+        </ol>
+
+
+
+</body>
+</html>
