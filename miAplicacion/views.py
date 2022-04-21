@@ -15,3 +15,6 @@ def gruposView(request):
     allgrupos = Grupo_Musical.objects.all()
     context = {'allgrupos': allgrupos}
     return render(request,"grupos.html",context)
+
+def crearView(request):
+    return render(request,"crear.html")

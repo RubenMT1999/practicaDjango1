@@ -5,4 +5,5 @@ urlpatterns = [
     path('inicio/', inicioView),
     path('albums/',albumsView,name='albums'),
     path('grupos/',gruposView,name='grupos'),
+    path('crear/',crearView,name='crear'),
 ]
