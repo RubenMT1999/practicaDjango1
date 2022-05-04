@@ -1,0 +1,29 @@
+
+{% include "header.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artistas</title>
+</head>
+<body>
+
+         <h1>Lista de Artistas</h1>
+        <ol>
+            {% for artista in allArtistas %}
+
+            <li>Nombre: {{ artista.nombre}} <br>
+                Primer Apellido: {{ artista.apellido1 }} <br>
+                Segundo Apellido: {{ artista.apellido2}} <br>
+                Grupo: {{ artista.grupo_id.nombreGrupo}} </li>
+                <a href="/borrarArtista/{{artista.id}}">Borrar</a>
+                <a href="/editarArtista/{{ artista.id }}">Editar</a>
+
+        <br><br>
+        {% endfor %}
+        </ol>
+
+</body>
+</html>

@@ -5,30 +5,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Creación de Álbum</title>
+    <title>Editar Álbum</title>
 </head>
 <body>
 
-    <form action="/crearAlbum/" method="post">
+
+
+    <form action="/editarAlbum/{{ allAlbums.id }}/" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" name="nombre" class="form-control" id="nombreAlbum" placeholder="Introduce Nombre" required>
+    <input type="text" name="nombre" class="form-control" id="nombreAlbum" value= "{{ allAlbums.nombreAlbum }}">
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Año</label>
-    <input type="number" name="anio" class="form-control" id="anioAlbum" placeholder="Introduce Año de lanzamiento" required>
+    <input type="number" name="anio" class="form-control" id="anioAlbum" value= {{ allAlbums.anio }}>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Genero</label>
-    <input type="text" name="genero" class="form-control" id="generoAlbum" placeholder="Introduce Género Musical" required>
+    <input type="text" name="genero" class="form-control" id="generoAlbum" value="{{ allAlbums.genero }}">
   </div>
 
     <div class="form-group">
     <label for="exampleInputEmail1">Grupo</label>
      <select id="comboGrupo" name="grupo" class="form-control">
+        <option selected="selected" >{{ allAlbums.grupoMusical_id.nombreGrupo }}</option>
         {% for Grupo in allGrupos %}
+            {% if Grupo.nombreGrupo != allAlbums.grupoMusical_id.nombreGrupo %}
     <option value="{{ Grupo.nombreGrupo }}">{{ Grupo.nombreGrupo }}</option>
+            {% endif %}
 {% endfor %}
       </select>
   </div>
@@ -44,7 +49,7 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">Puntuación</label>
-    <input type="number" name="puntuacion" class="form-control" id="puntuacionAlbum" placeholder="Introduce Puntuación" required>
+    <input type="number" name="puntuacion" class="form-control" id="puntuacionAlbum" placeholder="Introduce Puntuación">
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

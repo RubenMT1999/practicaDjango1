@@ -17,8 +17,8 @@
                 Estilo: {{ Grupo.estiloMusica }} <br>
                 Fecha creación: {{ Grupo.fecha_creacion }} <br>
                 Fecha disolución: {{ Grupo.fecha_disolucion }}</li>
-
-
+                <a href="/borrarGrupo/{{Grupo.id}}">Borrar</a>
+                <a href="/editarGrupo/{{Grupo.id}}">Editar</a>
         <br><br>
         {% endfor %}
         </ol>

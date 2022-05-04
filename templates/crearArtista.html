@@ -1,0 +1,38 @@
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creación de Artista</title>
+</head>
+<body>
+
+    <form action="/crearArtista/" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" name="nombre" class="form-control" id="nombreArtista" placeholder="Introduce Nombre" required>
+  </div>
+ <div class="form-group">
+    <label for="exampleInputEmail1">Primer Apellido</label>
+    <input type="text" name="primerApellido" class="form-control" id="primerApellido" placeholder="Introduce Primer Apellido" required>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Segundo Apellido</label>
+    <input type="text" name="segundoApellido" class="form-control" id="segundoApellido" placeholder="Introduce Segundo Apellido" required>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Grupo</label>
+     <select id="comboGrupo" name="grupo" class="form-control">
+        {% for Grupo in allGrupos %}
+    <option value="{{ Grupo.nombreGrupo }}">{{ Grupo.nombreGrupo }}</option>
+{% endfor %}
+      </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>
