@@ -20,12 +20,12 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Fecha de Creación</label>
-    <input type="date" name="fechaCreacion" class="form-control" id="fechaCreacion" value="{{ allGrupos.fecha_creacion }}">
+    <input type="date" name="fechaCreacion" class="form-control" id="fechaCreacion" value="{{ allGrupos.fecha_creacion|date:'Y-m-d' }}">
   </div>
 
    <div class="form-group">
     <label for="exampleInputEmail1">Fecha de Disolución</label>
-    <input type="date" name="FechaDisolucion" class="form-control" id="fechaDisolucion" value= "{{ allGrupos.fecha_disolucion }}" >
+    <input type="date" name="FechaDisolucion" class="form-control" id="fechaDisolucion" value= "{{ allGrupos.fecha_disolucion|date:'Y-m-d'}}" >
   </div>
 
 

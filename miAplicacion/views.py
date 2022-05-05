@@ -2,6 +2,8 @@ import requests
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from miAplicacion.models import *
+from babel.dates import format_date, format_datetime, format_time
+import datetime
 
 # Create your views here.
 def inicioView(request):
@@ -47,7 +49,8 @@ def crearGrupoView(request):
         nuevoGrupo.nombreGrupo = request.POST['nombre']
         nuevoGrupo.estiloMusica = request.POST['estilo']
         nuevoGrupo.fecha_creacion = request.POST['fechaCreacion']
-        nuevoGrupo.fecha_disolucion = request.POST.get('fechaDisolucion',None)
+        miFecha = request.POST['FechaDisolucion']
+        nuevoGrupo.fecha_disolucion = datetime.datetime.strptime(miFecha, "%Y-%m-%d")
         Grupo_Musical.save(nuevoGrupo)
         return redirect('/grupos')
 
@@ -104,13 +107,14 @@ def editarAlbumView(request,id):
 def editarGrupoView(request,id):
     if request.method == 'GET':
         allGrupos = Grupo_Musical.objects.get(id = id)
+        #fechaFormateada = allGrupos.fecha_creacion.strftime("%Y-%m-%d")
         return render(request,'editarGrupo.html',{'allGrupos':allGrupos})
     else:
         grupoEditar = Grupo_Musical.objects.get(id = id)
         grupoEditar.nombreGrupo = request.POST['nombre']
         grupoEditar.estiloMusica = request.POST['estilo']
-        grupoEditar.fecha_creacion = request.POST['fechaCreacion']
-        grupoEditar.fecha_disolucion = request.POST.get('fechaDisolucion',None)
+        grupoEditar.fecha_creacion = request.POST.get('fechaCreacion')
+        grupoEditar.fecha_disolucion = request.POST.get('FechaDisolucion')
         grupoEditar.save()
         return redirect('/grupos')
 
