@@ -2,7 +2,6 @@ import requests
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from miAplicacion.models import *
-from babel.dates import format_date, format_datetime, format_time
 import datetime
 
 # Create your views here.

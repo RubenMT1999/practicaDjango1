@@ -1,32 +1,46 @@
 
 {% include "header.html" %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Álbums</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
+
 <body>
 
-
-    <h1>Lista de álbums</h1>
-
-        <ol>
-            {% for Album in allAlbums %}
-                <li>Nombre: {{ Album.nombreAlbum }} <br>
-                    Año: {{ Album.anio }} <br>
-                    Género: {{ Album.genero }} <br>
-                    Grupo: {{ Album.grupoMusical_id.nombreGrupo }} <br>
-                    Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}<br>
-                    Puntuación: {{ Album.puntuacion }}</li>
-                    <a href="/borrarAlbum/{{Album.id}}">Borrar</a>
-                    <a href="/editarAlbum/{{Album.id}}">Editar</a>
-        <br><br>
-        {% endfor %}
-        </ol>
+    <div class="container bg-warning">
+        <h1 class="mt-3 ml-3 text-center">Lista de álbums</h1>
+    </div>
 
 
+<div class="container mt-5">
+    <div class="row">
+
+    {% for Album in allAlbums %}
+
+        <div class="card ml-5 mb-5 col-5" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ Album.nombreAlbum }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ Album.genero }}</h6>
+              <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item">Año: {{ Album.anio }}</li>
+                  <li class="list-group-item">Grupo: {{ Album.grupoMusical_id.nombreGrupo }}</li>
+                  <li class="list-group-item">Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}</li>
+                  </ul>
+            <a href="/borrarAlbum/{{Album.id}}" class="card-link">Borrar </a>
+            <a href="/editarAlbum/{{Album.id}}" class="card-link">Editar</a>
+          </div>
+        </div>
+        <div class="mt-4"></div>
+
+    {% endfor %}
+    </div>
+</div>
 
 
 </body>
