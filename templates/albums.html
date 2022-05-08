@@ -13,8 +13,8 @@
 
 <body>
 
-    <div class="container bg-warning">
-        <h1 class="mt-3 ml-3 text-center">Lista de álbums</h1>
+    <div class="container-fluid bg-warning">
+        <h1 class="mt-3 ml-3 pt-3 pb-3 text-center">Lista de álbums</h1>
     </div>
 
 
@@ -24,16 +24,17 @@
     {% for Album in allAlbums %}
 
         <div class="card ml-5 mb-5 col-5" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{ Album.nombreAlbum }}</h5>
+          <div class="card-body ">
+            <h4 class="card-title">{{ Album.nombreAlbum }}</h4>
             <h6 class="card-subtitle mb-2 text-muted">{{ Album.genero }}</h6>
               <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item">Año: {{ Album.anio }}</li>
-                  <li class="list-group-item">Grupo: {{ Album.grupoMusical_id.nombreGrupo }}</li>
-                  <li class="list-group-item">Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}</li>
+                  <li class="list-group-item ">Año: {{ Album.anio }}</li>
+                  <li class="list-group-item ">Grupo: {{ Album.grupoMusical_id.nombreGrupo }}</li>
+                  <li class="list-group-item ">Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}</li>
                   </ul>
-            <a href="/borrarAlbum/{{Album.id}}" class="card-link">Borrar </a>
-            <a href="/editarAlbum/{{Album.id}}" class="card-link">Editar</a>
+            <a href="/borrarAlbum/{{Album.id}}" class="card-link ml-3">Borrar </a>
+            <a href="/editarAlbum/{{Album.id}}" class="card-link ml-3 ">Editar</a>
+
           </div>
         </div>
         <div class="mt-4"></div>

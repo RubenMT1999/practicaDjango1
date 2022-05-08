@@ -9,12 +9,26 @@
 </head>
 <body>
 
-        <h1>¿Qué deseas crear?</h1>
+        <div class="container-fluid bg-warning">
+        <h1 class="mt-3 pt-3 pb-3 ml-3 text-center">¿Qué deseas crear?</h1>
+        </div>
 
-        <ul>
-            <li><a href="{% url 'crearAlbum' %}">Álbum</a></li>
-            <li><a href="{% url 'crearGrupo' %}">Grupo</a></li>
-            <li><a href="{% url 'crearArtista' %}">Artista</a></li>
+        <ul class="mt-5 mr-5">
+            <div class="alert alert-primary text-center">
+                <a href="{% url 'crearAlbum' %}" class="text-primary font-weight-bold h5">
+                    Álbum</a>
+            </div>
+
+            <div class="alert alert-danger text-center">
+                <a href="{% url 'crearGrupo' %}" class="text-primary font-weight-bold h5">
+                    Grupo</a>
+            </div>
+
+            <div class="alert alert-warning text-center">
+                <a href="{% url 'crearArtista' %}" class="text-primary font-weight-bold h5">
+                    Artista</a>
+            </div>
+
         </ul>
 </body>
 </html>

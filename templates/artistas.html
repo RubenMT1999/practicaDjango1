@@ -10,20 +10,35 @@
 </head>
 <body>
 
-         <h1>Lista de Artistas</h1>
-        <ol>
-            {% for artista in allArtistas %}
+    <div class="container-fluid bg-warning">
+        <h1 class="mt-3 ml-3 pt-3 pb-3 text-center">Lista de Artistas</h1>
+    </div>
 
-            <li>Nombre: {{ artista.nombre}} <br>
-                Primer Apellido: {{ artista.apellido1 }} <br>
-                Segundo Apellido: {{ artista.apellido2}} <br>
-                Grupo: {{ artista.grupo_id.nombreGrupo}} </li>
-                <a href="/borrarArtista/{{artista.id}}">Borrar</a>
-                <a href="/editarArtista/{{ artista.id }}">Editar</a>
 
-        <br><br>
-        {% endfor %}
-        </ol>
+<div class="container mt-5">
+    <div class="row">
+
+    {% for artista in allArtistas %}
+
+        <div class="card ml-5 mb-5 col-5" style="width: 18rem;">
+          <div class="card-body ">
+            <h4 class="card-title">{{ artista.nombre}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ artista.grupo_id.nombreGrupo}}</h6>
+              <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item ">Primer Apellido: {{ artista.apellido1 }}</li>
+                  <li class="list-group-item ">Segundo Apellido: {{ artista.apellido2}}</li>
+                  </ul>
+
+            <a href="/borrarArtista/{{artista.id}}" class="card-link ml-3">Borrar </a>
+            <a href="/editarArtista/{{ artista.id }}" class="card-link ml-3 ">Editar</a>
+
+          </div>
+        </div>
+        <div class="mt-4"></div>
+
+    {% endfor %}
+    </div>
+</div>
 
 </body>
 </html>

@@ -9,20 +9,34 @@
 </head>
 <body>
 
-     <h1>Lista de grupos</h1>
-        <ol>
-            {% for Grupo in allgrupos %}
+    <div class="container-fluid bg-warning">
+        <h1 class="mt-3 ml-3 pt-3 pb-3 text-center">Lista de Grupos</h1>
+    </div>
 
-            <li>Nombre: {{ Grupo.nombreGrupo}} <br>
-                Estilo: {{ Grupo.estiloMusica }} <br>
-                Fecha creación: {{ Grupo.fecha_creacion }} <br>
-                Fecha disolución: {{ Grupo.fecha_disolucion }}</li>
-                <a href="/borrarGrupo/{{Grupo.id}}">Borrar</a>
-                <a href="/editarGrupo/{{Grupo.id}}">Editar</a>
-        <br><br>
-        {% endfor %}
-        </ol>
 
+<div class="container mt-5">
+    <div class="row">
+
+    {% for Grupo in allgrupos %}
+
+        <div class="card ml-5 mb-5 col-5" style="width: 18rem;">
+          <div class="card-body ">
+            <h4 class="card-title">{{ Grupo.nombreGrupo}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ Grupo.estiloMusica }}</h6>
+              <ul class="list-group list-group-flush mb-3">
+                  <li class="list-group-item ">Fecha creación: {{ Grupo.fecha_creacion }}</li>
+                  <li class="list-group-item ">Fecha disolución: {{ Grupo.fecha_disolucion }}</li>
+                  </ul>
+            <a href="/borrarGrupo/{{Grupo.id}}" class="card-link ml-3">Borrar </a>
+            <a href="/editarGrupo/{{Grupo.id}}" class="card-link ml-3 ">Editar</a>
+
+          </div>
+        </div>
+        <div class="mt-4"></div>
+
+    {% endfor %}
+    </div>
+</div>
 
 
 </body>
