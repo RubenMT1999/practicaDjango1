@@ -49,7 +49,10 @@ def crearGrupoView(request):
         nuevoGrupo.estiloMusica = request.POST['estilo']
         nuevoGrupo.fecha_creacion = request.POST['fechaCreacion']
         miFecha = request.POST['FechaDisolucion']
-        nuevoGrupo.fecha_disolucion = datetime.datetime.strptime(miFecha, "%Y-%m-%d")
+        if miFecha is not "":
+            nuevoGrupo.fecha_disolucion = datetime.datetime.strptime(miFecha, "%Y-%m-%d")
+        else:
+            nuevoGrupo.fecha_disolucion = None
         Grupo_Musical.save(nuevoGrupo)
         return redirect('/grupos')
 
@@ -113,7 +116,11 @@ def editarGrupoView(request,id):
         grupoEditar.nombreGrupo = request.POST['nombre']
         grupoEditar.estiloMusica = request.POST['estilo']
         grupoEditar.fecha_creacion = request.POST.get('fechaCreacion')
-        grupoEditar.fecha_disolucion = request.POST.get('FechaDisolucion')
+        if request.POST.get('FechaDisolucion') is not "":
+            grupoEditar.fecha_disolucion = request.POST.get('FechaDisolucion')
+        else:
+            grupoEditar.fecha_disolucion = None
+
         grupoEditar.save()
         return redirect('/grupos')
 

@@ -8,7 +8,7 @@ class Grupo_Musical(models.Model):
     nombreGrupo = models.CharField(max_length=50, blank=False)
     estiloMusica = models.CharField(max_length=50)
     fecha_creacion = models.DateField(blank=False)
-    fecha_disolucion = models.DateField(null=True, blank=True)
+    fecha_disolucion = models.DateField(null=True, blank=True, default=None)
 
 
 class Artista(models.Model):
