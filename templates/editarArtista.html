@@ -3,24 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Creación de Artista</title>
+    <link rel="stylesheet" href="{% static 'css/miEstilo.css' %}">
 </head>
-<body>
+<body class="body6">
 
-    <form action="/editarArtista/{{ allArtistas.id }}/" method="post">
+    <form action="/editarArtista/{{ allArtistas.id }}/" class="container mx-auto mt-5 fuente" style="width: 500px;" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" name="nombre" class="form-control" id="nombreArtista" value="{{ allArtistas.nombre }}">
+    <input type="text" name="nombre" class="form-control" id="nombreArtista" value="{{ allArtistas.nombre }}" required>
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Primer Apellido</label>
-    <input type="text" name="primerApellido" class="form-control" id="primerApellido" value="{{ allArtistas.apellido1 }}">
+    <input type="text" name="primerApellido" class="form-control" id="primerApellido" value="{{ allArtistas.apellido1 }}"required>
   </div>
    <div class="form-group">
     <label for="exampleInputEmail1">Segundo Apellido</label>
-    <input type="text" name="segundoApellido" class="form-control" id="segundoApellido" value="{{ allArtistas.apellido2 }}">
+    <input type="text" name="segundoApellido" class="form-control" id="segundoApellido" value="{{ allArtistas.apellido2 }}" required>
   </div>
    <div class="form-group">
     <label for="exampleInputEmail1">Grupo</label>

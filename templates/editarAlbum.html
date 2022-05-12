@@ -4,18 +4,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Editar Álbum</title>
+    <link rel="stylesheet" href="{% static 'css/miEstilo.css' %}">
 </head>
-<body>
+<body class="body6">
 
 
 
-    <form action="/editarAlbum/{{ allAlbums.id }}/" method="post">
+    <form action="/editarAlbum/{{ allAlbums.id }}/" class="container mx-auto mt-5 fuente" style="width: 500px;" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" name="nombre" class="form-control" id="nombreAlbum" value= "{{ allAlbums.nombreAlbum }}">
+    <input type="text" name="nombre" class="form-control" id="nombreAlbum" value= "{{ allAlbums.nombreAlbum }}" required>
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Año</label>
@@ -23,7 +25,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Genero</label>
-    <input type="text" name="genero" class="form-control" id="generoAlbum" value="{{ allAlbums.genero }}">
+    <input type="text" name="genero" class="form-control" id="generoAlbum" value="{{ allAlbums.genero }}" required>
   </div>
 
     <div class="form-group">
@@ -49,7 +51,7 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">Puntuación</label>
-    <input type="number" name="puntuacion" class="form-control" id="puntuacionAlbum" placeholder="Introduce Puntuación">
+    <input type="number" name="puntuacion" class="form-control" id="puntuacionAlbum" placeholder="Introduce Puntuación" required>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

@@ -3,24 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Creación de Grupo</title>
+    <link rel="stylesheet" href="{% static 'css/miEstilo.css' %}">
 </head>
-<body>
+<body class="body6">
 
-    <form action="/editarGrupo/{{ allGrupos.id }}/" method="post">
+    <form action="/editarGrupo/{{ allGrupos.id }}/" class="container mx-auto mt-5 fuente" style="width: 500px;" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" name="nombre" class="form-control" id="nombreGrupo" value = "{{ allGrupos.nombreGrupo }}">
+    <input type="text" name="nombre" class="form-control" id="nombreGrupo" value = "{{ allGrupos.nombreGrupo }}" required>
   </div>
  <div class="form-group">
     <label for="exampleInputEmail1">Estilo de Música</label>
-    <input type="text" name="estilo" class="form-control" id="estilo" value= "{{ allGrupos.estiloMusica }}">
+    <input type="text" name="estilo" class="form-control" id="estilo" value= "{{ allGrupos.estiloMusica }}" required>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Fecha de Creación</label>
-    <input type="date" name="fechaCreacion" class="form-control" id="fechaCreacion" value="{{ allGrupos.fecha_creacion|date:'Y-m-d' }}">
+    <input type="date" name="fechaCreacion" class="form-control" id="fechaCreacion" value="{{ allGrupos.fecha_creacion|date:'Y-m-d' }}" required>
   </div>
 
    <div class="form-group">

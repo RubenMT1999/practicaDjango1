@@ -3,12 +3,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Creación de Artista</title>
+    <link rel="stylesheet" href="{% static 'css/miEstilo.css' %}">
 </head>
-<body>
+<body class="body6">
 
-    <form action="/crearArtista/" method="post">
+    <form action="/crearArtista/" class="container mx-auto mt-5 fuente" style="width: 500px;" method="post">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>

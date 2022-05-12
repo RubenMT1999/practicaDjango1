@@ -5,16 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Álbums</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/miEstilo.css' %}">
 </head>
 
-<body>
+<body class="body3">
 
-    <div class="container-fluid bg-warning">
-        <h1 class="mt-3 ml-3 pt-3 pb-3 text-center">Lista de álbums</h1>
+    <div class="container-fluid bg-success">
+        <h1 class="mt-3 ml-3 pt-3 pb-3 text-center text-white">Lista de álbums</h1>
     </div>
 
 
@@ -28,12 +28,14 @@
             <h4 class="card-title">{{ Album.nombreAlbum }}</h4>
             <h6 class="card-subtitle mb-2 text-muted">{{ Album.genero }}</h6>
               <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item ">Año: {{ Album.anio }}</li>
-                  <li class="list-group-item ">Grupo: {{ Album.grupoMusical_id.nombreGrupo }}</li>
+                  <li class="list-group-item">Año: {{ Album.anio }}</li>
+                  <li class="list-group-item">Grupo: {{ Album.grupoMusical_id.nombreGrupo }}</li>
                   <li class="list-group-item ">Artista: {{ Album.artista_id.nombre }}   {{ Album.artista_id.apellido1 }}</li>
+                  <li class="list-group-item">Puntuación: {{ Album.puntuacion }}</li>
                   </ul>
             <a href="/borrarAlbum/{{Album.id}}" class="card-link ml-3">Borrar </a>
             <a href="/editarAlbum/{{Album.id}}" class="card-link ml-3 ">Editar</a>
+
 
           </div>
         </div>

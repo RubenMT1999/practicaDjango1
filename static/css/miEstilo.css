@@ -1,0 +1,42 @@
+
+.body1{
+    background-image: url("http://1.bp.blogspot.com/-AY-p9btnK_w/Tk6_jyALVpI/AAAAAAAAAJA/1sSkBBmhvXM/s1600/Michael_Jackson_songs_High_definition_wallpaper.jpg");
+}
+
+.body2{
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-transparente-diferentes-insrtuments-musicales-dibujos-animados-arte-musical-colores-estan-grupos-separados_300579-157.jpg?w=2000");
+}
+
+.body3{
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/182/888/839/music-album-covers-wallpaper-preview.jpg");
+}
+
+.body4{
+    background-image: url("https://marketing4ecommerce.net/wp-content/uploads/2018/08/Depositphotos_8480205_m-2015-compressor.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 100%;
+    height: 790px;
+}
+
+.body5{
+    background-image: url("https://img.freepik.com/foto-gratis/fondo-musical-instrumentos-musicales-endecha-plana-concepto-creacion-musical_169016-15780.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 790px;
+
+}
+
+
+.body6{
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-musica-retro_6718-14.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 100%;
+    height: 790px;
+}
+
+.fuente{
+    font-weight: bolder;
+}
