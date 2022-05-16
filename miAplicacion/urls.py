@@ -1,5 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from django.contrib import admin
 from miAplicacion.views import *
+
+
+
+router = routers.DefaultRouter()
+
+router.register('discograficas',DiscograficaViewSet)
+
 
 urlpatterns = [
     path('inicio/', inicioView,name='inicio'),
@@ -16,4 +25,6 @@ urlpatterns = [
     path('editarAlbum/<int:id>/',editarAlbumView,name='editarAlbum'),
     path('editarGrupo/<int:id>/',editarGrupoView,name='editarGrupo'),
     path('editarArtista/<int:id>/',editarArtistaView,name='editarArtista'),
+    path('api/',include(router.urls)),
+    path('prueba/',pruebaView,name='prueba'),
 ]

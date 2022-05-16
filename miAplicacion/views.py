@@ -1,10 +1,15 @@
 import requests
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from rest_framework import viewsets
+
 from miAplicacion.models import *
 import datetime
 
 # Create your views here.
+from miAplicacion.serializers import DiscograficaSerializer
+
+
 def inicioView(request):
     return render(request,"inicio.html")
 
@@ -142,3 +147,34 @@ def editarArtistaView(request,id):
 
 def crearView(request):
     return render(request,"crear.html")
+
+
+
+
+
+class DiscograficaViewSet(viewsets.ModelViewSet):
+    queryset = Discografica.objects.all()
+    serializer_class = DiscograficaSerializer
+
+
+def pruebaView(request):
+    url = "https://deezerdevs-deezer.p.rapidapi.com/playlist/%7Bid%7D"
+
+    headers = {
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        "X-RapidAPI-Key": "49bd03d5fcmsh5a352edd72a9c9ap1a972djsnc8034406cdc5"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    datos = response.json()
+    dato = datos[0]
+    return render(request,"prueba.html",{'dato':dato})
+
+
+
+
+
+
+
+
+

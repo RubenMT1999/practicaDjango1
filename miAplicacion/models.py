@@ -33,3 +33,21 @@ class Cancion(models.Model):
     generoCancion = models.CharField(max_length=50)
     album_id = models.ForeignKey(Album, on_delete=models.CASCADE, blank=True)
     artista_id = models.ForeignKey(Artista, on_delete=models.CASCADE, blank=False)
+
+
+
+class Discografica(models.Model):
+  nombre = models.CharField(max_length=150)
+  fundacion = models.IntegerField(default=0)
+  ingresos =  models.IntegerField(default=0)
+
+
+
+
+
+
+
+
+
+
+
