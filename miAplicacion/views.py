@@ -158,7 +158,7 @@ class DiscograficaViewSet(viewsets.ModelViewSet):
 
 
 def pruebaView(request):
-    url = "https://deezerdevs-deezer.p.rapidapi.com/playlist/%7Bid%7D"
+    url = "https://deezerdevs-deezer.p.rapidapi.com/artist/3"
 
     headers = {
         "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
@@ -167,11 +167,22 @@ def pruebaView(request):
 
     response = requests.request("GET", url, headers=headers)
     datos = response.json()
-    dato = datos[0]
-    return render(request,"prueba.html",{'dato':dato})
+    nombre = datos.get('name')
+    foto = datos.get('picture_big')
+    numero_fans = datos.get('nb_fan')
+    top_50 = datos.get('tracklist')
+
+    return render(request,"prueba.html",{'nombre':nombre,'foto':foto,
+                                         'numero_fans':numero_fans,'top_50':top_50})
 
 
 
+def topHitsView(request,id):
+    url = requests.get("https://api.deezer.com/artist/"+str(id)+"/top?limit=50").json()
+
+    nombreHit = url.get('title')
+
+    return render(request,"topHits.html",{'nombreHit':nombreHit})
 
 
 

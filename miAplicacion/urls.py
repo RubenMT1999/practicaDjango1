@@ -27,4 +27,5 @@ urlpatterns = [
     path('editarArtista/<int:id>/',editarArtistaView,name='editarArtista'),
     path('api/',include(router.urls)),
     path('prueba/',pruebaView,name='prueba'),
+    path('topHits/<int:id>/',topHitsView,name='topHits'),
 ]
