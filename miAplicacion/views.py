@@ -1,5 +1,5 @@
 import requests
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from rest_framework import viewsets
 
@@ -7,7 +7,7 @@ from miAplicacion.models import *
 import datetime
 
 # Create your views here.
-from miAplicacion.serializers import DiscograficaSerializer
+from miAplicacion.serializers import DiscograficaSerializer, GruposSerializer
 
 
 def inicioView(request):
@@ -155,6 +155,14 @@ def crearView(request):
 class DiscograficaViewSet(viewsets.ModelViewSet):
     queryset = Discografica.objects.all()
     serializer_class = DiscograficaSerializer
+
+class GruposViewSet(viewsets.ModelViewSet):
+    queryset = Grupo_Musical.objects.all()
+    serializer_class = GruposSerializer
+    #def grupo_redirect(request):
+     #   return HttpResponseRedirect(redirect_to='https://google.com')
+
+
 
 
 def pruebaView(request):

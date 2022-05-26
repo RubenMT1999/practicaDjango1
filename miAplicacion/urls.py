@@ -8,6 +8,7 @@ from miAplicacion.views import *
 router = routers.DefaultRouter()
 
 router.register('discograficas',DiscograficaViewSet)
+router.register('grupos',GruposViewSet)
 
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
     path('editarGrupo/<int:id>/',editarGrupoView,name='editarGrupo'),
     path('editarArtista/<int:id>/',editarArtistaView,name='editarArtista'),
     path('api/',include(router.urls)),
+    #path('miApi/',GruposViewSet,name='miApi'),
     path('prueba/',pruebaView,name='prueba'),
     path('topHits/<int:id>/',topHitsView,name='topHits'),
+
 ]
